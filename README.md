@@ -1,12 +1,23 @@
-# Find_My_Resturent
-This project aims to develop the backend of a real-world application in Node.js, Express.js and MongoDB. With the find my restaurant application, you can do the following
-Installed  Dependencies
-Restaurant Schema
-Testing
-Test your API endpoints using tools like Postman or Insomnia to ensure they work as expected.
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const Restaurant = require('./restaurant.model'); // Import restaurant model
 
-Documentation
-Document your API endpoints using tools like Swagger or by creating API documentation in Markdown format. 
+const app = express();
+const port = process.env.PORT || 3000;
 
-Deployment
+// Middleware
+app.use(bodyParser.json());
 
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/your-database-name', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+API routes and endpoints
+Implement CRUD operations for restaurants here
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
